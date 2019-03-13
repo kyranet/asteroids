@@ -1,0 +1,11 @@
+.vs/
+*.exe
+*.ilk
+*.pdb
+*.tlog
+*.obj
+*.idb
+*.log
+*.tlog
+
+Asteroids/Debug/
