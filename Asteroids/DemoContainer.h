@@ -9,16 +9,16 @@
 /*
  *
  */
-class DemoContainer: public Container {
-public:
-	DemoContainer(SDLGame* game);
-	virtual ~DemoContainer();
-	void reset();
-private:
-	ImageGC tennisball_;
-	DemoIC  backToCenter_;
-	NaturalMovePC naturalMove_;
-	BounceOnBorderPC bounceOnBorders_;
-	DemoGC keysInfo_;
-};
+class DemoContainer : public Container {
+ public:
+  DemoContainer(SDLGame* game);
+  virtual ~DemoContainer();
+  void reset();
 
+ private:
+  ImageGC tennisball_;
+  DemoIC backToCenter_;
+  NaturalMovePC naturalMove_;
+  BounceOnBorderPC bounceOnBorders_;
+  DemoGC keysInfo_;
+};

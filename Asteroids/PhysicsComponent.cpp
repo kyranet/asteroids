@@ -1,11 +1,9 @@
 #include "PhysicsComponent.h"
 
 PhysicsComponent::PhysicsComponent() {
-	// TODO Auto-generated constructor stub
-
+  // TODO Auto-generated constructor stub
 }
 
 PhysicsComponent::~PhysicsComponent() {
-	// TODO Auto-generated destructor stub
+  // TODO Auto-generated destructor stub
 }
-

@@ -7,10 +7,9 @@
 /*
  *
  */
-class PhysicsComponent: virtual public Component {
-public:
-	PhysicsComponent();
-	virtual ~PhysicsComponent();
-	virtual void update(Container* c, Uint32 time) = 0;
+class PhysicsComponent : virtual public Component {
+ public:
+  PhysicsComponent();
+  virtual ~PhysicsComponent();
+  virtual void update(Container* c, Uint32 time) = 0;
 };
-

@@ -1,22 +1,17 @@
 #include "SRandBasedGenerator.h"
 
 #include <cstdlib>
-#include <iostream>
 #include <ctime>
+#include <iostream>
 
 using namespace std;
 
-SRandBasedGenerator::SRandBasedGenerator() {
-	srand(std::time(0));
-}
+SRandBasedGenerator::SRandBasedGenerator() { srand(std::time(0)); }
 
-SRandBasedGenerator::~SRandBasedGenerator() {
-}
+SRandBasedGenerator::~SRandBasedGenerator() {}
 
-int SRandBasedGenerator::nextInt() {
-	return rand();
-}
+int SRandBasedGenerator::nextInt() { return rand(); }
 
 int SRandBasedGenerator::nextInt(int low, int high) {
-	return low+(nextInt() % abs(high-low));
+  return low + (nextInt() % abs(high - low));
 }

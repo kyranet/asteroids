@@ -5,16 +5,15 @@
  *
  */
 class Observer {
-public:
-	Observer();
-	virtual ~Observer();
+ public:
+  Observer();
+  virtual ~Observer();
 
-	msg::ObjectId getId();
-	void setId(msg::ObjectId id);
+  msg::ObjectId getId();
+  void setId(msg::ObjectId id);
 
-	virtual void receive(const void* senderObj, const msg::Message& msg) = 0;
+  virtual void receive(const void* senderObj, const msg::Message& msg) = 0;
 
-private:
-	msg::ObjectId id_;
+ private:
+  msg::ObjectId id_;
 };
-

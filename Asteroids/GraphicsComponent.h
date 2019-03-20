@@ -7,10 +7,9 @@
 /*
  *
  */
-class GraphicsComponent: virtual public Component {
-public:
-	GraphicsComponent();
-	virtual ~GraphicsComponent();
-	virtual void render(Container* c, Uint32 time) = 0;
+class GraphicsComponent : virtual public Component {
+ public:
+  GraphicsComponent();
+  virtual ~GraphicsComponent();
+  virtual void render(Container* c, Uint32 time) = 0;
 };
-

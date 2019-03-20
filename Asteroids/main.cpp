@@ -3,8 +3,7 @@
 using namespace std;
 
 int main(int ac, char** av) {
-
-	AsteroidsGame g;
-	g.start();
-	return 0;
+  AsteroidsGame g;
+  g.start();
+  return 0;
 }

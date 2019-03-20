@@ -1,15 +1,9 @@
 #include "Observer.h"
 
-Observer::Observer() : id_(msg::None) {
-}
+Observer::Observer() : id_(msg::None) {}
 
-Observer::~Observer() {
-}
+Observer::~Observer() {}
 
-msg::ObjectId Observer::getId() {
-	return id_;
-}
+msg::ObjectId Observer::getId() { return id_; }
 
-void Observer::setId(msg::ObjectId id) {
-	id_ = id;
-}
+void Observer::setId(msg::ObjectId id) { id_ = id; }
