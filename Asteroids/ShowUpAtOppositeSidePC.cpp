@@ -1,22 +1,25 @@
 #include "ShowUpAtOppositeSidePC.h"
 
-ShowUpAtOppositeSidePC::ShowUpAtOppositeSidePC() {}
-
-ShowUpAtOppositeSidePC::~ShowUpAtOppositeSidePC() {}
+ShowUpAtOppositeSidePC::ShowUpAtOppositeSidePC() = default;
+ShowUpAtOppositeSidePC::~ShowUpAtOppositeSidePC() = default;
 
 void ShowUpAtOppositeSidePC::update(Container* c, Uint32 time) {
-  auto game = c->getGame();
+  const auto game = c->getGame();
+  const auto width = c->getWidth();
+  const auto height = c->getHeight();
   auto position = c->getPosition();
 
-  if (position.getX() < 0) {
-    position.setX(game->getWindowWidth());
+  if (position.getX() + width < 0) {
+    position.setX(game->getWindowWidth() + width);
   } else if (position.getX() > game->getWindowWidth()) {
-    position.setX(0);
+    position.setX(-width);
   }
 
-  if (position.getY() < 0) {
-    position.setY(game->getWindowHeight());
+  if (position.getY() + height < 0) {
+    position.setY(game->getWindowHeight() + height);
   } else if (position.getY() > game->getWindowHeight()) {
-    position.setY(0);
+    position.setY(-height);
   }
+
+  c->setPosition(position);
 }
