@@ -1,15 +1,15 @@
 #pragma once
 #include "PhysicsComponent.h"
 
-class ReduceSpeedPC : public PhysicsComponent {
+class ReduceSpeedPC final : public PhysicsComponent {
  public:
   ReduceSpeedPC();
-  ReduceSpeedPC(const float factor);
+  ReduceSpeedPC(float factor);
   virtual ~ReduceSpeedPC();
-  virtual void update(Container* c, Uint32 time);
+  void update(Container* c, Uint32 time) override;
 
   float getFactor() const;
-  void setFactor(const float factor);
+  void setFactor(float factor);
 
  protected:
   float factor_;

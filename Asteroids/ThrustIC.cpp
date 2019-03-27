@@ -1,12 +1,10 @@
 #include "ThrustIC.h"
 
-ThrustIC::ThrustIC() {}
-
 ThrustIC::ThrustIC(const SDL_Keycode key, const float thrust,
                    const float speedLimit)
     : key_(key), thrust_(thrust), speedLimit_(speedLimit) {}
 
-ThrustIC::~ThrustIC() {}
+ThrustIC::~ThrustIC() = default;
 
 void ThrustIC::handleInput(Container* c, Uint32 time, const SDL_Event& event) {
   // If it's not a keydown, return earlier
@@ -19,16 +17,5 @@ void ThrustIC::handleInput(Container* c, Uint32 time, const SDL_Event& event) {
   c->setVelocity(
       (c->getVelocity() + (Vector2D(0, -1).rotate(c->getRotation()) * thrust_))
           .normalize() *
-      getSpeedLimit());
+      speedLimit_);
 }
-
-float ThrustIC::getThrust() const { return thrust_; }
-void ThrustIC::setThrust(const float thrust) { thrust_ = thrust; }
-
-float ThrustIC::getSpeedLimit() const { return speedLimit_; }
-void ThrustIC::setSpeedLimit(const float speedLimit) {
-  speedLimit_ = speedLimit;
-}
-
-SDL_Keycode ThrustIC::getKey() const { return key_; }
-void ThrustIC::setKey(const SDL_Keycode key) { key_ = key; }

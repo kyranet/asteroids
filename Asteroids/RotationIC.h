@@ -1,22 +1,11 @@
 #pragma once
 #include "InputComponent.h"
 
-class RotationIC : public InputComponent {
+class RotationIC final : public InputComponent {
  public:
-  RotationIC();
-  RotationIC(const SDL_Keycode keyLeft, const SDL_Keycode keyRight,
-             const float alpha);
+  RotationIC(SDL_Keycode keyLeft, SDL_Keycode keyRight, float alpha);
   virtual ~RotationIC();
-  virtual void handleInput(Container* c, Uint32 time, const SDL_Event& event);
-
-  float getAlpha() const;
-  void setAlpha(const float alpha);
-
-  SDL_Keycode getKeyLeft() const;
-  void setKeyLeft(const SDL_Keycode keyLeft);
-
-  SDL_Keycode getKeyRight() const;
-  void setKeyRight(const SDL_Keycode keyRight);
+  void handleInput(Container* c, Uint32 time, const SDL_Event& event) override;
 
  protected:
   SDL_Keycode keyLeft_;

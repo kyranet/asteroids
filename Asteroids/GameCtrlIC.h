@@ -1,10 +1,9 @@
 #pragma once
 #include "InputComponent.h"
-class GunIC final : public InputComponent {
-  SDL_Keycode key_;
 
+class GameCtrlIC final : public InputComponent {
  public:
-  explicit GunIC(SDL_Keycode key);
-  virtual ~GunIC();
+  GameCtrlIC() = default;
+  virtual ~GameCtrlIC() = default;
   void handleInput(Container* c, Uint32 time, const SDL_Event& event) override;
 };

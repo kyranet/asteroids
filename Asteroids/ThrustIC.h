@@ -1,20 +1,10 @@
 #pragma once
 #include "InputComponent.h"
-class ThrustIC : public InputComponent {
+class ThrustIC final : public InputComponent {
  public:
-  ThrustIC();
-  ThrustIC(const SDL_Keycode key, const float thrust, const float speedLimit);
+  ThrustIC(SDL_Keycode key, float thrust, float speedLimit);
   virtual ~ThrustIC();
-  virtual void handleInput(Container* c, Uint32 time, const SDL_Event& event);
-
-  float getThrust() const;
-  void setThrust(const float thrust);
-
-  float getSpeedLimit() const;
-  void setSpeedLimit(const float speedLimit);
-
-  SDL_Keycode getKey() const;
-  void setKey(const SDL_Keycode key);
+  void handleInput(Container* c, Uint32 time, const SDL_Event& event) override;
 
  protected:
   SDL_Keycode key_;

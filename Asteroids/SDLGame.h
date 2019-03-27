@@ -16,7 +16,6 @@ using namespace std;
 
 class SDLGame {
  public:
- public:
   SDLGame(string windowTitle_, int width, int height);
   virtual ~SDLGame();
 

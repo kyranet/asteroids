@@ -8,12 +8,7 @@
 #include "ShowUpAtOppositeSidePC.h"
 #include "ThrustIC.h"
 
-class Fighter : public Container {
- public:
-  Fighter(SDLGame* game);
-  virtual ~Fighter();
-
- private:
+class Fighter final : public Container {
   ImageGC fighterImage_;
   NaturalMovePC naturalMove_;
   ShowUpAtOppositeSidePC oppositeSide_;
@@ -21,4 +16,12 @@ class Fighter : public Container {
   ThrustIC thrust_;
   ReduceSpeedPC reduceSpeed_;
   GunIC normalGun_;
+
+ public:
+  Fighter(SDLGame* game, int width, int height, const Vector2D& position);
+  virtual ~Fighter();
+  void update(Uint32 time) override;
+  void render(Uint32 time) override;
+  void handleInput(Uint32 time, const SDL_Event& event) override;
+  void receive(const void* senderObj, const msg::Message& msg) override;
 };

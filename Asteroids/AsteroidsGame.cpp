@@ -4,13 +4,25 @@ using namespace std;
 
 AsteroidsGame::AsteroidsGame()
     : SDLGame("Asteroids", _WINDOW_WIDTH_, _WINDOW_HEIGHT_),
-      demoContainer_(this) {
+      exit_(false),
+      demoContainer_(this),
+      fighter_(this, 75, 75,
+               {static_cast<double>(getWindowWidth()) / 2,
+                static_cast<double>(getWindowHeight()) / 2}),
+      asteroids_(this),
+      bullets_(this),
+      gameManager_(this) {
   initGame();
 }
 
 AsteroidsGame::~AsteroidsGame() { closeGame(); }
 
-void AsteroidsGame::initGame() { actors_.push_back(&demoContainer_); }
+void AsteroidsGame::initGame() {
+  actors_.push_back(&fighter_);
+  actors_.push_back(&asteroids_);
+  actors_.push_back(&bullets_);
+  actors_.push_back(&gameManager_);
+}
 
 void AsteroidsGame::closeGame() {}
 

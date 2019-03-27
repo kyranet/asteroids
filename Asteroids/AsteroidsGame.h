@@ -2,18 +2,22 @@
 
 #include <vector>
 
+#include "Asteroids.h"
 #include "DemoContainer.h"
+#include "Fighter.h"
 #include "GameObject.h"
 #include "SDLGame.h"
+#include "GameManager.h"
+#include "Bullets.h"
 
-class AsteroidsGame : public SDLGame {
+class AsteroidsGame final : public SDLGame {
  public:
   AsteroidsGame();
   virtual ~AsteroidsGame();
 
   // from SDLGame
-  void start();
-  void stop();
+  void start() override;
+  void stop() override;
 
  private:
   void initGame();
@@ -28,4 +32,8 @@ class AsteroidsGame : public SDLGame {
   std::vector<GameObject*> actors_;
 
   DemoContainer demoContainer_;
+  Fighter fighter_;
+  Asteroids asteroids_;
+  Bullets bullets_;
+  GameManager gameManager_;
 };

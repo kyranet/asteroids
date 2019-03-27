@@ -8,6 +8,7 @@ enum ObjectId {
   Fighter,
   Asteroids,
   Bullets,
+  BulletsShooter,
   GameManager
 };
 
