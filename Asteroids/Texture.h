@@ -10,8 +10,7 @@ class Texture {
  public:
   Texture();
   Texture(SDL_Renderer* renderer, string fileName);
-  Texture(SDL_Renderer* renderer, string text, Font& font,
-          const SDL_Color color);
+  Texture(SDL_Renderer* renderer, string text, Font& font, SDL_Color color);
   virtual ~Texture();
 
   int getWidth();
@@ -20,7 +19,7 @@ class Texture {
   bool isReady();
 
   bool loadFromImg(SDL_Renderer* renderer, string fileName);
-  bool loadFromText(SDL_Renderer* renderer, string texto, Font& font,
+  bool loadFromText(SDL_Renderer* renderer, const string& text, Font& font,
                     SDL_Color color = {0, 0, 0, 255});
 
   // render the complete texture at position (x,y). We either provide
