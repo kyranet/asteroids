@@ -1,4 +1,5 @@
 #include "AsteroidsGame.h"
+#include "InputHandler.h"
 
 using namespace std;
 
@@ -47,27 +48,21 @@ void AsteroidsGame::start() {
 void AsteroidsGame::stop() { exit_ = true; }
 
 void AsteroidsGame::handleInput(const Uint32 time) {
-  SDL_Event event;
-  while (SDL_PollEvent(&event)) {
-    if (event.type == SDL_KEYDOWN) {
-      switch (event.key.keysym.sym) {
-        case SDLK_ESCAPE:
-          exit_ = true;
-          break;
-        // Pressing f to toggle fullscreen.
-        case SDLK_f:
-          const int flags = SDL_GetWindowFlags(window_);
-          if (flags & SDL_WINDOW_FULLSCREEN) {
-            SDL_SetWindowFullscreen(window_, 0);
-          } else {
-            SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
-          }
-          break;
-      }
+  const auto input = InputHandler::getInstance();
+  input->update();
+  if (input->isKeyDown(SDLK_ESCAPE)) {
+    exit_ = true;
+  } else if (input->isKeyDown(SDLK_f)) {
+    const auto flags = SDL_GetWindowFlags(window_);
+    if (flags & SDL_WINDOW_FULLSCREEN) {
+      SDL_SetWindowFullscreen(window_, 0);
+    } else {
+      SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
     }
-    for (auto o : actors_) {
-      o->handleInput(time, event);
-    }
+  }
+
+  for (auto o : actors_) {
+    o->handleInput(time);
   }
 }
 

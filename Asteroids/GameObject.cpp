@@ -8,19 +8,17 @@ GameObject::GameObject(SDLGame* game)
       active_(true),
       width_(),
       height_(),
-      position_(),
-      velocity_(),
       acceleration_(0, 0),
       rotation_(0.0) {}
 
-GameObject::~GameObject() {}
+GameObject::~GameObject() = default;
 
 SDLGame* GameObject::getGame() const { return game_; }
 
 void GameObject::setGame(SDLGame* game) { game_ = game; }
 
 bool GameObject::isActive() const { return active_; }
-void GameObject::setActive(bool active) { active_ = active; }
+void GameObject::setActive(const bool active) { active_ = active; }
 
 bool GameObject::toggleActive() {
   active_ = !active_;
@@ -29,11 +27,11 @@ bool GameObject::toggleActive() {
 
 double GameObject::getWidth() const { return width_; }
 
-void GameObject::setWidth(double width) { width_ = width; }
+void GameObject::setWidth(const double width) { width_ = width; }
 
 double GameObject::getHeight() const { return height_; }
 
-void GameObject::setHeight(double height) { height_ = height; }
+void GameObject::setHeight(const double height) { height_ = height; }
 
 Vector2D GameObject::getPosition() const { return position_; }
 
@@ -45,7 +43,7 @@ void GameObject::setVelocity(const Vector2D& vel) { velocity_.set(vel); }
 
 Vector2D GameObject::getAcceleration() const { return acceleration_; }
 
-void GameObject::scale(double s) {
+void GameObject::scale(const double s) {
   width_ *= s;
   height_ *= s;
 }
@@ -56,7 +54,9 @@ void GameObject::setAcceleration(const Vector2D& vel) {
 
 double GameObject::getRotation() const { return rotation_; }
 
-void GameObject::setRotation(double angle) { rotation_ = fmod(angle, 360.0); }
+void GameObject::setRotation(const double angle) {
+  rotation_ = fmod(angle, 360.0);
+}
 
 void GameObject::receive(const void* senderObj, const msg::Message& msg) {
   // By default objects do no do anything when receiving a message.

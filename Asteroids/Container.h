@@ -16,7 +16,7 @@ class Container : public GameObject {
   Container(SDLGame* game);
   virtual ~Container();
 
-  virtual void handleInput(Uint32 time, const SDL_Event& event);
+  virtual void handleInput(Uint32 time);
   virtual void update(Uint32 time);
   virtual void render(Uint32 time);
 

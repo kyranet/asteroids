@@ -11,9 +11,9 @@ Container::Container(SDLGame* game) : GameObject(game), ic_(), pc_(), gc_() {}
 
 Container::~Container() {}
 
-void Container::handleInput(Uint32 time, const SDL_Event& event) {
+void Container::handleInput(Uint32 time) {
   for (auto ic : ic_) {
-    if (ic.active && isActive()) ic.data->handleInput(this, time, event);
+    if (ic.active && isActive()) ic.data->handleInput(this, time);
   }
 }
 

@@ -6,5 +6,5 @@ class GunIC final : public InputComponent {
  public:
   explicit GunIC(SDL_Keycode key);
   virtual ~GunIC();
-  void handleInput(Container* c, Uint32 time, const SDL_Event& event) override;
+  void handleInput(Container* c, Uint32 time) override;
 };

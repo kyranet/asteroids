@@ -5,7 +5,7 @@ class RotationIC final : public InputComponent {
  public:
   RotationIC(SDL_Keycode keyLeft, SDL_Keycode keyRight, float alpha);
   virtual ~RotationIC();
-  void handleInput(Container* c, Uint32 time, const SDL_Event& event) override;
+  void handleInput(Container* c, Uint32 time) override;
 
  protected:
   SDL_Keycode keyLeft_;

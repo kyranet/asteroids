@@ -41,11 +41,11 @@ inline GameObjectPool<T, SIZE>::~GameObjectPool() {}
 template <typename T, int SIZE>
 inline void GameObjectPool<T, SIZE>::handleInput(Uint32 time,
                                                  const SDL_Event& event) {
-  Container::handleInput(time, event);
+  Container::handleInput(time);
   if (!isActive()) return;
   for (auto& o : objs_) {
     if (o.isActive()) {
-      o.handleInput(time, event);
+      o.handleInput(time);
     }
   }
 }

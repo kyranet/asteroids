@@ -1,11 +1,12 @@
 #include "GunIC.h"
+#include "InputHandler.h"
 #include "Messages_defs.h"
 
 GunIC::GunIC(const SDL_Keycode key) : key_(key) {}
 GunIC::~GunIC() = default;
 
-void GunIC::handleInput(Container* c, Uint32 time, const SDL_Event& event) {
-  if (event.key.keysym.sym != key_) return;
+void GunIC::handleInput(Container* c, Uint32 time) {
+  if (!InputHandler::getInstance()->isKeyDown(key_)) return;
 
   const auto p =
       c->getPosition() + Vector2D(c->getWidth() / 2.0, c->getHeight() / 2.0) +
