@@ -93,6 +93,7 @@
     <ClCompile Include="GunIC.cpp" />
     <ClCompile Include="ImageGC.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="LivesViewerGC.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NaturalMovePC.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="GunIC.h" />
     <ClInclude Include="ImageGC.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="LivesViewerGC.h" />
     <ClInclude Include="Messages_decl.h" />
     <ClInclude Include="Messages_defs.h" />
