@@ -1,5 +1,7 @@
 #include "Asteroids.h"
+#include <sstream>
 #include "AsteroidsGame.h"
+#include "Logger.h"
 
 Asteroids::Asteroids(SDLGame* game)
     : GameObjectPool<Asteroid, 50>(game),
@@ -68,6 +70,12 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg) {
         auto v = (c - p).normalize() * (r->nextInt(1, 10) / 10.0);
         a->setVelocity(v);
         a->setActive(true);
+
+        Logger::getInstance()->log([p, v]() {
+          stringstream s;
+          s << "New asteroid: " << p << " " << v;
+          return s.str();
+        });
       }
       break;
     }

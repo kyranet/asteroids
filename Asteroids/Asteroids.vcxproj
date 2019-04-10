@@ -96,6 +96,7 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="LivesViewerGC.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NaturalMovePC.cpp" />
     <ClCompile Include="Observer.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="LivesViewerGC.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="Messages_decl.h" />
     <ClInclude Include="Messages_defs.h" />
     <ClInclude Include="NaturalMovePC.h" />

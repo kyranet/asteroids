@@ -1,5 +1,6 @@
 #include "AsteroidsGame.h"
 #include "InputHandler.h"
+#include "Logger.h"
 
 using namespace std;
 
@@ -18,6 +19,8 @@ AsteroidsGame::AsteroidsGame()
 AsteroidsGame::~AsteroidsGame() { closeGame(); }
 
 void AsteroidsGame::initGame() {
+  Logger::getInstance()->initInstance("log.txt");
+
   actors_.push_back(&fighter_);
   actors_.push_back(&asteroids_);
   actors_.push_back(&bullets_);

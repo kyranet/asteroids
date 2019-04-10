@@ -1,4 +1,5 @@
 ﻿#include "GameManager.h"
+#include "Logger.h"
 #include "Messages_defs.h"
 
 GameManager::GameManager(SDLGame* game)
@@ -34,6 +35,11 @@ void GameManager::receive(const void* senderObj, const msg::Message& msg) {
       running_ = true;
       getGame()->getServiceLocator()->getAudios()->playMusic(
           Resources::ImperialMarch);
+      Logger::getInstance()->log("Round Start");
+      break;
+    }
+    case msg::ROUND_OVER: {
+      Logger::getInstance()->log("Round End");
       break;
     }
     case msg::ASTEROID_DESTROYED: {
