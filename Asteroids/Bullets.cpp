@@ -40,6 +40,7 @@ void Bullets::receive(const void* senderObj, const msg::Message& msg) {
     }
     case msg::FIGHTER_SHOOT: {
       auto bullet = getUnusedObject();
+      if (bullet == nullptr) return;
       bullet->setWidth(1);
       bullet->setHeight(5);
 

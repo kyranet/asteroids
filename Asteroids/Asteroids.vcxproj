@@ -80,9 +80,6 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="DeactivateOnBorderExitPC.cpp" />
-    <ClCompile Include="DemoContainer.cpp" />
-    <ClCompile Include="DemoGC.cpp" />
-    <ClCompile Include="DemoIC.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FighterAsteroidCollisionPC.cpp" />
     <ClCompile Include="Font.cpp" />
@@ -135,9 +132,6 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Container.h" />
     <ClInclude Include="DeactivateOnBorderExitPC.h" />
-    <ClInclude Include="DemoContainer.h" />
-    <ClInclude Include="DemoGC.h" />
-    <ClInclude Include="DemoIC.h" />
     <ClInclude Include="Fighter.h" />
     <ClInclude Include="FighterAsteroidCollisionPC.h" />
     <ClInclude Include="Font.h" />

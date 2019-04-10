@@ -1,12 +1,12 @@
 #pragma once
+#include "Asteroid.h"
 #include "GameObjectPool.h"
 #include "ImageGC.h"
 #include "NaturalMovePC.h"
 #include "RotatingPC.h"
 #include "ShowUpAtOppositeSidePC.h"
-#include "Asteroid.h"
 
-class Asteroids : public GameObjectPool<Asteroid, 50> {
+class Asteroids final : public GameObjectPool<Asteroid, 50> {
   ImageGC asteroidImage_;
   NaturalMovePC naturalMove_;
   RotatingPC rotating_;
@@ -15,4 +15,5 @@ class Asteroids : public GameObjectPool<Asteroid, 50> {
  public:
   explicit Asteroids(SDLGame* game);
   virtual ~Asteroids();
+  void receive(const void* senderObj, const msg::Message& msg) override;
 };

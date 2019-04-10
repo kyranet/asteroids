@@ -8,6 +8,7 @@ GameManager::GameManager(SDLGame* game)
       score_(0),
       lives_(maxLives_),
       winner_(0) {
+  setId(msg::GameManager);
   addC(&gameCtrl_);
   addC(&scoreViewer_);
   addC(&livesViewer_);
@@ -32,7 +33,7 @@ void GameManager::receive(const void* senderObj, const msg::Message& msg) {
     case msg::ROUND_START: {
       running_ = true;
       getGame()->getServiceLocator()->getAudios()->playMusic(
-          Resources::ImperialMarch, -1);
+          Resources::ImperialMarch);
       break;
     }
     case msg::ASTEROID_DESTROYED: {

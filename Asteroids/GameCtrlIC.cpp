@@ -7,9 +7,10 @@ void GameCtrlIC::handleInput(Container* c, Uint32 time,
   // If it's not a key down, don't handle any input
   if (event.type != SDL_KEYDOWN) return;
 
-  const auto gameManager = static_cast<GameManager*>(c);  // NOLINT
+  // It's only the GameManager what sends messages to this controller
+  const auto gameManager = reinterpret_cast<GameManager*>(c);
   if (!gameManager->isRunning() && event.key.keysym.sym == SDLK_RETURN) {
-    if (gameManager->isRunning()) {
+    if (gameManager->isGameOver()) {
       c->globalSend(this,
                     msg::Message(msg::GAME_START, c->getId(), msg::Broadcast));
     }

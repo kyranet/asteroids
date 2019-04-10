@@ -5,10 +5,9 @@ using namespace std;
 AsteroidsGame::AsteroidsGame()
     : SDLGame("Asteroids", _WINDOW_WIDTH_, _WINDOW_HEIGHT_),
       exit_(false),
-      demoContainer_(this),
       fighter_(this, 75, 75,
-               {static_cast<double>(getWindowWidth()) / 2,
-                static_cast<double>(getWindowHeight()) / 2}),
+               {static_cast<double>(getWindowWidth()) / 2.0,
+                static_cast<double>(getWindowHeight()) / 2.0}),
       asteroids_(this),
       bullets_(this),
       gameManager_(this) {
@@ -22,6 +21,11 @@ void AsteroidsGame::initGame() {
   actors_.push_back(&asteroids_);
   actors_.push_back(&bullets_);
   actors_.push_back(&gameManager_);
+
+  addObserver(&fighter_);
+  addObserver(&asteroids_);
+  addObserver(&bullets_);
+  addObserver(&gameManager_);
 }
 
 void AsteroidsGame::closeGame() {}
@@ -30,19 +34,19 @@ void AsteroidsGame::start() {
   exit_ = false;
 
   while (!exit_) {
-    Uint32 startTime = SDL_GetTicks();
+    const auto startTime = SDL_GetTicks();
     handleInput(startTime);
     update(startTime);
     render(startTime);
 
-    Uint32 frameTime = SDL_GetTicks() - startTime;
+    const auto frameTime = SDL_GetTicks() - startTime;
     if (frameTime < 10) SDL_Delay(10 - frameTime);
   }
 }
 
 void AsteroidsGame::stop() { exit_ = true; }
 
-void AsteroidsGame::handleInput(Uint32 time) {
+void AsteroidsGame::handleInput(const Uint32 time) {
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
     if (event.type == SDL_KEYDOWN) {
@@ -52,7 +56,7 @@ void AsteroidsGame::handleInput(Uint32 time) {
           break;
         // Pressing f to toggle fullscreen.
         case SDLK_f:
-          int flags = SDL_GetWindowFlags(window_);
+          const int flags = SDL_GetWindowFlags(window_);
           if (flags & SDL_WINDOW_FULLSCREEN) {
             SDL_SetWindowFullscreen(window_, 0);
           } else {
@@ -61,7 +65,7 @@ void AsteroidsGame::handleInput(Uint32 time) {
           break;
       }
     }
-    for (GameObject* o : actors_) {
+    for (auto o : actors_) {
       o->handleInput(time, event);
     }
   }

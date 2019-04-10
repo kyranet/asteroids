@@ -29,3 +29,19 @@ void FighterAsteroidCollisionPC::update(Container* c, Uint32 time) {
                                                       fighter_, asteroid));
   }
 }
+
+void FighterAsteroidCollisionPC::receive(Container* c,
+                                         const msg::Message& msg) {
+  switch (msg.type_) {
+    case msg::ASTEROIDS_INFO: {
+      asteroids_ = reinterpret_cast<const msg::AsteroidsInfo&>(msg).asteroids_;
+      break;
+    }
+    case msg::FIGHTER_INFO: {
+      fighter_ = reinterpret_cast<const msg::FighterInfo&>(msg).fighter_;
+      break;
+    }
+    default:
+      break;
+  }
+}
