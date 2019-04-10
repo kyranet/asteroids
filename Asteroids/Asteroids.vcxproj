@@ -71,6 +71,7 @@
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="AsteroidsGame.cpp" />
     <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="BlockingQueue.cpp" />
     <ClCompile Include="BounceOnBorderPC.cpp" />
     <ClCompile Include="BoundingBoxGC.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -118,12 +119,14 @@
     <ClCompile Include="TexturesManager.cpp" />
     <ClCompile Include="ThrustIC.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Asteroids.h" />
     <ClInclude Include="AsteroidsGame.h" />
     <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="BlockingQueue.h" />
     <ClInclude Include="BounceOnBorderPC.h" />
     <ClInclude Include="BoundingBoxGC.h" />
     <ClInclude Include="Bullet.h" />
@@ -172,6 +175,7 @@
     <ClInclude Include="TexturesManager.h" />
     <ClInclude Include="ThrustIC.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="Worker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
