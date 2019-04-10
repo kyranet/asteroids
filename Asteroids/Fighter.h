@@ -20,8 +20,5 @@ class Fighter final : public Container {
  public:
   Fighter(SDLGame* game, int width, int height, const Vector2D& position);
   virtual ~Fighter();
-  void update(Uint32 time) override;
-  void render(Uint32 time) override;
-  void handleInput(Uint32 time, const SDL_Event& event) override;
   void receive(const void* senderObj, const msg::Message& msg) override;
 };

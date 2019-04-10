@@ -32,6 +32,9 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg) {
       setActive(true);
       for (auto i = 0; i < 10; i++) {
         auto a = getUnusedObject();
+        // If there are no unused objects, it's not possible for this loop to
+        // continue running.
+        if (a == nullptr) return;
         a->setWidth(20);
         a->setHeight(20);
         int x, y;
@@ -77,7 +80,6 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg) {
       const auto collision =
           static_cast<const msg::BulletAsteroidCollision&>(msg);  // NOLINT
       auto x = collision.asteroid_;                               // NOLINT
-      x->setActive(false);
 
       const auto points = 4 - x->getGenerations();
       globalSend(
@@ -98,6 +100,8 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg) {
           a->setActive(true);
         }
       }
+
+      x->setActive(false);
 
       auto remainingAsteroids = 0;
       for (auto a : getAllObjects()) {

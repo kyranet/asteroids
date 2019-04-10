@@ -18,25 +18,17 @@ Fighter::Fighter(SDLGame* game, const int width, const int height,
   setVelocity({0.0, 0.0});
   setRotation(90);
   setActive(false);
+
+  addC(&rotation_);
+  addC(&thrust_);
+  addC(&normalGun_);
+  addC(&naturalMove_);
+  addC(&oppositeSide_);
+  addC(&reduceSpeed_);
+  addC(&fighterImage_);
 }
 
 Fighter::~Fighter() = default;
-
-void Fighter::handleInput(const Uint32 time, const SDL_Event& event) {
-  if (event.type == SDL_KEYDOWN) {
-    rotation_.handleInput(this, time, event);
-    thrust_.handleInput(this, time, event);
-    normalGun_.handleInput(this, time, event);
-  }
-}
-
-void Fighter::update(const Uint32 time) {
-  naturalMove_.update(this, time);
-  oppositeSide_.update(this, time);
-  reduceSpeed_.update(this, time);
-}
-
-void Fighter::render(const Uint32 time) { fighterImage_.render(this, time); }
 
 void Fighter::receive(const void* senderObj, const msg::Message& msg) {
   Container::receive(senderObj, msg);

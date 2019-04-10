@@ -13,9 +13,11 @@ void ThrustIC::handleInput(Container* c, Uint32 time, const SDL_Event& event) {
   // If it's not the arrow up key, return earlier
   if (event.key.keysym.sym != SDLK_UP) return;
 
+  auto v =
+      c->getVelocity() + (Vector2D(0, -1).rotate(c->getRotation()) * thrust_);
+
+  if (v.magnitude() > speedLimit_) v = v.normalize() * speedLimit_;
+
   // Set the velocity
-  c->setVelocity(
-      (c->getVelocity() + (Vector2D(0, -1).rotate(c->getRotation()) * thrust_))
-          .normalize() *
-      speedLimit_);
+  c->setVelocity(v);
 }
