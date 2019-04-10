@@ -9,5 +9,8 @@ void ScoreViewerGC::render(Container* c, Uint32 time) {
                       *c->getGame()->getServiceLocator()->getFonts()->getFont(
                           Resources::ARIAL24),
                       {COLOR(0x0022FFFF)});
-  textTexture.render(c->getGame()->getRenderer(), c->getGame()->getWindowWidth() / 4, 30);
+  textTexture.render(
+      c->getGame()->getRenderer(),
+      c->getGame()->getWindowWidth() / 2 - textTexture.getWidth() / 2,
+      c->getGame()->getWindowHeight() - 170);
 }
