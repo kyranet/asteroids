@@ -1,5 +1,4 @@
 #include "Worker.h"
-
 #include <SDL_thread.h>
 #include <iostream>
 
@@ -9,8 +8,13 @@ Worker::~Worker() { stop(); }
 
 void Worker::start() {
   if (!running_) {
+    // This is commented out because SDL2 uses Windows-specific APIs in the
+    // middle of 2019, and cygwin cannot use it because _beginthread and
+    // _endthread do not exist.
+#if defined(__WIN32__) && !defined(__CYGWIN__)
     running_ = true;
-    // t_ = SDL_CreateThread(start, "Worker", this);
+    t_ = SDL_CreateThread(start, "Worker", this);
+#endif
   }
 }
 
