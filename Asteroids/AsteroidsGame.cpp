@@ -11,6 +11,7 @@ AsteroidsGame::AsteroidsGame()
                {static_cast<double>(getWindowWidth()) / 2.0,
                 static_cast<double>(getWindowHeight()) / 2.0}),
       asteroids_(this),
+      blackHoles_(this),
       bullets_(this),
       gameManager_(this) {
   initGame();
@@ -25,11 +26,13 @@ void AsteroidsGame::initGame() {
   actors_.push_back(&asteroids_);
   actors_.push_back(&bullets_);
   actors_.push_back(&gameManager_);
+  actors_.push_back(&blackHoles_);
 
   addObserver(&fighter_);
   addObserver(&asteroids_);
   addObserver(&bullets_);
   addObserver(&gameManager_);
+  addObserver(&blackHoles_);
 }
 
 void AsteroidsGame::closeGame() {}

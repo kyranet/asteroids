@@ -1,9 +1,8 @@
 #pragma once
-
 #include <vector>
-
 #include "Asteroids.h"
 #include "Fighter.h"
+#include "BlackHoles.h"
 #include "GameObject.h"
 #include "SDLGame.h"
 #include "GameManager.h"
@@ -31,6 +30,7 @@ class AsteroidsGame final : public SDLGame {
   std::vector<GameObject*> actors_;
   Fighter fighter_;
   Asteroids asteroids_;
+  BlackHoles blackHoles_;
   Bullets bullets_;
   GameManager gameManager_;
 };

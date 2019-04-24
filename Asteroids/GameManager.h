@@ -5,6 +5,7 @@
 #include "GameCtrlIC.h"
 #include "GameStatusViewGC.h"
 #include "LivesViewerGC.h"
+#include "FighterBlackHoleCollisionPC.h"
 #include "ScoreViewerGC.h"
 
 class GameManager final : public Container {
@@ -34,4 +35,5 @@ class GameManager final : public Container {
   LivesViewerGC livesViewer_;
   FighterAsteroidCollisionPC fighterAsteroidCollision_;
   BulletsAsteroidsCollisionPC bulletsAsteroidsCollision_;
+  FighterBlackHoleCollisionPC fighterBlackHoleCollision_;
 };

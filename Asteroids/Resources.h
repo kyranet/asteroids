@@ -21,6 +21,7 @@ class Resources {
     Asteroid,
     Badges,
     WhiteRect,
+    BlackHole,
 
     // text
     HelloWorld,

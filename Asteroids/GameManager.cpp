@@ -16,6 +16,7 @@ GameManager::GameManager(SDLGame* game)
   addC(&gameStatusView_);
   addC(&fighterAsteroidCollision_);
   addC(&bulletsAsteroidsCollision_);
+  addC(&fighterBlackHoleCollision_);
 }
 
 GameManager::~GameManager() = default;
@@ -64,7 +65,7 @@ void GameManager::receive(const void* senderObj, const msg::Message& msg) {
       getGame()->getServiceLocator()->getAudios()->haltMusic();
 
       running_ = false;
-      lives_--;
+      --lives_;
       globalSend(this,
                  msg::Message(msg::ROUND_OVER, msg::None, msg::Broadcast));
 
@@ -74,6 +75,25 @@ void GameManager::receive(const void* senderObj, const msg::Message& msg) {
         globalSend(this,
                    msg::Message(msg::GAME_OVER, msg::None, msg::Broadcast));
       }
+      break;
+    }
+    case msg::FIGHTER_BLACKHOLE_COLLISION: {
+      getGame()->getServiceLocator()->getAudios()->playChannel(
+          Resources::Explosion, 0, -1);
+      getGame()->getServiceLocator()->getAudios()->haltMusic();
+
+      running_ = false;
+      --lives_;
+      globalSend(this,
+                 msg::Message(msg::ROUND_OVER, msg::None, msg::Broadcast));
+
+      if (lives_ == 0) {
+        gameOver_ = true;
+        winner_ = 1;
+        globalSend(this,
+                   msg::Message(msg::GAME_OVER, msg::None, msg::Broadcast));
+      }
+      Logger::getInstance()->log("Round End");
       break;
     }
     default:

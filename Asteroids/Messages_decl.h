@@ -9,7 +9,8 @@ enum ObjectId {
   Asteroids,
   Bullets,
   BulletsShooter,
-  GameManager
+  GameManager,
+  BlackHoles
 };
 
 enum MessageType {
@@ -20,11 +21,13 @@ enum MessageType {
   FIGHTER_SHOOT,
   BULLET_ASTEROID_COLLISION,
   FIGHTER_ASTEROID_COLLISION,
+  FIGHTER_BLACKHOLE_COLLISION,
   ASTEROID_DESTROYED,
   NO_MORE_ASTEROIDS,
   FIGHTER_INFO,
   BULLETS_INFO,
-  ASTEROIDS_INFO
+  ASTEROIDS_INFO,
+  BLACKHOLES_INFO
 };
 
 struct Message;

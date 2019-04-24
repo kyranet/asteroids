@@ -2,7 +2,6 @@
 #include "DeactivateOnBorderExitPC.h"
 #include "GameObjectPool.h"
 #include "ImageGC.h"
-#include "Messages_defs.h"
 #include "NaturalMovePC.h"
 #include "Bullet.h"
 

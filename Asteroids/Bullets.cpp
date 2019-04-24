@@ -1,5 +1,6 @@
 ﻿#include "Bullets.h"
 #include "Bullet.h"
+#include "Messages_defs.h"
 
 Bullets::Bullets(SDLGame* game)
     : GameObjectPool(game),
