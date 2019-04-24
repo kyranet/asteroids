@@ -7,7 +7,7 @@
 FighterAsteroidCollisionPC::FighterAsteroidCollisionPC()
     : fighter_(nullptr), asteroids_(nullptr) {}
 
-void FighterAsteroidCollisionPC::update(Container* c, Uint32 time) {
+void FighterAsteroidCollisionPC::update(Container* c, Uint32) {
   // If fighter or asteroids are null, exit immediately from the update
   if (fighter_ == nullptr || asteroids_ == nullptr) return;
 
@@ -30,7 +30,7 @@ void FighterAsteroidCollisionPC::update(Container* c, Uint32 time) {
   }
 }
 
-void FighterAsteroidCollisionPC::receive(Container* c,
+void FighterAsteroidCollisionPC::receive(Container*,
                                          const msg::Message& msg) {
   switch (msg.type_) {
     case msg::ASTEROIDS_INFO: {

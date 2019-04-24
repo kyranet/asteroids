@@ -7,7 +7,7 @@ RotationIC::RotationIC(const SDL_Keycode keyLeft, const SDL_Keycode keyRight,
 
 RotationIC::~RotationIC() = default;
 
-void RotationIC::handleInput(Container* c, Uint32 time) {
+void RotationIC::handleInput(Container* c, Uint32) {
   const auto input = InputHandler::getInstance();
 
   if (input->isKeyDown(keyLeft_)) c->setRotation(c->getRotation() + alpha_);

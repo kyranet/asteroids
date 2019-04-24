@@ -59,12 +59,12 @@ InputHandler::InputHandler() { clearState(); }
 
 InputHandler::~InputHandler() = default;
 
-void InputHandler::onKeyDown(SDL_Event& event) {
+void InputHandler::onKeyDown(SDL_Event&) {
   keyDown_ = true;
   kbState_ = SDL_GetKeyboardState(nullptr);
 }
 
-void InputHandler::onKeyUp(SDL_Event& event) {
+void InputHandler::onKeyUp(SDL_Event&) {
   keyUp_ = true;
   kbState_ = SDL_GetKeyboardState(nullptr);
 }

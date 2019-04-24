@@ -1,6 +1,7 @@
 #include "Asteroids.h"
 #include <sstream>
 #include "AsteroidsGame.h"
+#include <stdexcept>
 #include "Logger.h"
 
 Asteroids::Asteroids(SDLGame* game)
@@ -21,7 +22,7 @@ Asteroids::Asteroids(SDLGame* game)
 
 Asteroids::~Asteroids() = default;
 
-void Asteroids::receive(const void* senderObj, const msg::Message& msg) {
+void Asteroids::receive(const void*, const msg::Message& msg) {
   auto r = getGame()->getServiceLocator()->getRandomGenerator();
 
   switch (msg.type_) {
@@ -59,7 +60,7 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg) {
             y = getGame()->getWindowHeight();
             break;
           default:
-            throw std::exception("Unreachable");
+            throw std::runtime_error("Unreachable");
         }
 
         auto p = Vector2D(x, y);

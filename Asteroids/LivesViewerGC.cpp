@@ -1,7 +1,7 @@
 #include "LivesViewerGC.h"
 #include "GameManager.h"
 
-void LivesViewerGC::render(Container* c, Uint32 time) {
+void LivesViewerGC::render(Container* c, Uint32) {
   const auto gameManager = static_cast<GameManager*>(c);  // NOLINT
 
   Texture textTexture(c->getGame()->getRenderer(),

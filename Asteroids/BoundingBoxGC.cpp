@@ -7,7 +7,7 @@ BoundingBoxGC::BoundingBoxGC(SDL_Color color) : color_(color) {}
 
 BoundingBoxGC::~BoundingBoxGC() {}
 
-void BoundingBoxGC::render(Container* c, Uint32 time) {
+void BoundingBoxGC::render(Container* c, Uint32) {
   SDL_Renderer* renderer = c->getGame()->getRenderer();
 
   // the rotation angle of the object wrt to

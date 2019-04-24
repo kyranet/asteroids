@@ -6,24 +6,11 @@
  * environment we use.
  */
 
-// The following 'if' includes the SDL paths depending on the operating system,
-// you might need to fix it depending on how you've installed the SDL libraries
-//
-#if defined(_WIN32) || defined(_WIN64)  // Windows
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_net.h>
 #include <SDL_ttf.h>
-#elif defined(__APPLE__) && defined(__MACH__)  // Apple OSX and iOS (Darwin)
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_mixer/SDL_mixer.h>
-#include <SDL2_net/SDL_net.h>
-#include <SDL2_ttf/SDL_ttf.h>
-#else
-#error "SDL includes where not resolved correctly"
-#endif
 
 // the RECT macro is used to automatically cast the argument to integer (since
 // in GameObject the dimension, position, etc., are of type double

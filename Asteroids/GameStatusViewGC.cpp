@@ -1,7 +1,7 @@
 #include "GameStatusViewGC.h"
 #include "GameManager.h"
 
-void GameStatusViewGC::render(Container* c, Uint32 time) {
+void GameStatusViewGC::render(Container* c, Uint32) {
   const auto gameManager = static_cast<GameManager*>(c);  // NOLINT
 
   if (gameManager->isRunning()) {

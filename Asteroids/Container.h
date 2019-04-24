@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include <algorithm>
 
 class Component;
 class InputComponent;

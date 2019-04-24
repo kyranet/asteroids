@@ -8,7 +8,7 @@ BounceOnBorderPC::BounceOnBorderPC(bool left, bool right, bool top, bool bot)
 
 BounceOnBorderPC::~BounceOnBorderPC() {}
 
-void BounceOnBorderPC::update(Container* c, Uint32 time) {
+void BounceOnBorderPC::update(Container* c, Uint32) {
   Vector2D p = c->getPosition();
   Vector2D v = c->getVelocity();
 

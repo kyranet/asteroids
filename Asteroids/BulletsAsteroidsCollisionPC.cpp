@@ -5,7 +5,7 @@
 #include "GameManager.h"
 #include "Messages_defs.h"
 
-void BulletsAsteroidsCollisionPC::update(Container* c, Uint32 time) {
+void BulletsAsteroidsCollisionPC::update(Container* c, Uint32) {
   const auto gameManager = static_cast<GameManager*>(c);  // NOLINT
 
   // If the game is not running, exit immediately from the update
@@ -26,7 +26,7 @@ void BulletsAsteroidsCollisionPC::update(Container* c, Uint32 time) {
   }
 }
 
-void BulletsAsteroidsCollisionPC::receive(Container* c,
+void BulletsAsteroidsCollisionPC::receive(Container*,
                                           const msg::Message& msg) {
   switch (msg.type_) {
     case msg::ASTEROIDS_INFO: {

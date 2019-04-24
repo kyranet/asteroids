@@ -1,6 +1,6 @@
 ﻿#include "DeactivateOnBorderExitPC.h"
 
-void DeactivateOnBorderExitPC::update(Container* c, Uint32 time) {
+void DeactivateOnBorderExitPC::update(Container* c, Uint32) {
   auto position = c->getPosition();
 
   if (position.getX() <= 0 ||

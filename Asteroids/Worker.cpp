@@ -10,7 +10,7 @@ Worker::~Worker() { stop(); }
 void Worker::start() {
   if (!running_) {
     running_ = true;
-    t_ = SDL_CreateThread(start, "Worker", this);
+    // t_ = SDL_CreateThread(start, "Worker", this);
   }
 }
 
@@ -18,7 +18,7 @@ void Worker::stop() {
   if (running_) {
     running_ = false;
     execute([]() {});  // empty task to wake the thread up
-    SDL_WaitThread(t_, NULL);
+    SDL_WaitThread(t_, nullptr);
   }
 }
 

@@ -10,7 +10,7 @@ ImageGC::ImageGC(Texture* texture, SDL_Rect clip)
 
 ImageGC::~ImageGC() {}
 
-void ImageGC::render(Container* c, Uint32 time) {
+void ImageGC::render(Container* c, Uint32) {
   SDL_Rect dest = RECT(c->getPosition().getX(), c->getPosition().getY(),
                        c->getWidth(), c->getHeight());
   texture_->render(dest, c->getRotation(), &clip_);

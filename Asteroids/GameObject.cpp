@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "Messages_defs.h"
+#include <cmath>
 
 GameObject::GameObject() : GameObject(nullptr) {}
 
@@ -58,7 +59,7 @@ void GameObject::setRotation(const double angle) {
   rotation_ = fmod(angle, 360.0);
 }
 
-void GameObject::receive(const void* senderObj, const msg::Message& msg) {
+void GameObject::receive(const void*, const msg::Message&) {
   // By default objects do no do anything when receiving a message.
   // Only those interested will implement this method
 }

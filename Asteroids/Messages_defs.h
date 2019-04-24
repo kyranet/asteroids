@@ -88,4 +88,4 @@ struct AsteroidsInfo : public msg::Message {
   const std::vector<Asteroid*>* asteroids_;
 };
 
-};  // namespace msg
+}  // namespace msg

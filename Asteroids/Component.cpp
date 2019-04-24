@@ -5,7 +5,7 @@ Component::Component() {}
 
 Component::~Component() {}
 
-void Component::receive(Container* c, const msg::Message& msg) {
+void Component::receive(Container*, const msg::Message&) {
   // By default components do not do anything when receiving a message.
   // Only those interested will implement this method
 }

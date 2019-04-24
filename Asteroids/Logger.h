@@ -1,10 +1,11 @@
 #pragma once
 #include <fstream>
+#include <memory>
 #include "Worker.h"
 
 class Logger final {
   Logger();
-  static unique_ptr<Logger> instance_;
+  static std::unique_ptr<Logger> instance_;
   Worker worker_;
   ofstream log_;
 

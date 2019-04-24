@@ -9,7 +9,7 @@ StopOnBordersPC::StopOnBordersPC(bool left, bool right, bool top, bool bot)
 
 StopOnBordersPC::~StopOnBordersPC() {}
 
-void StopOnBordersPC::update(Container* c, Uint32 time) {
+void StopOnBordersPC::update(Container* c, Uint32) {
   Vector2D p = c->getPosition();
   Vector2D v = c->getVelocity();
 

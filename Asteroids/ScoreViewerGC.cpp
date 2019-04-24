@@ -1,7 +1,7 @@
 #include "ScoreViewerGC.h"
 #include "GameManager.h"
 
-void ScoreViewerGC::render(Container* c, Uint32 time) {
+void ScoreViewerGC::render(Container* c, Uint32) {
   const auto gameManager = static_cast<GameManager*>(c);  // NOLINT
 
   Texture textTexture(c->getGame()->getRenderer(),

@@ -16,7 +16,7 @@ Bullets::Bullets(SDLGame* game)
 
 Bullets::~Bullets() = default;
 
-void Bullets::receive(const void* senderObj, const msg::Message& msg) {
+void Bullets::receive(const void*, const msg::Message& msg) {
   switch (msg.type_) {
     case msg::GAME_START:
       globalSend(this, msg::BulletsInfo(msg::BulletsShooter, msg::Broadcast,

@@ -7,7 +7,7 @@ ThrustIC::ThrustIC(const SDL_Keycode key, const float thrust,
 
 ThrustIC::~ThrustIC() = default;
 
-void ThrustIC::handleInput(Container* c, Uint32 time) {
+void ThrustIC::handleInput(Container* c, Uint32) {
   // If it's not the arrow up key, return earlier
   if (!InputHandler::getInstance()->isKeyDown(key_)) return;
 

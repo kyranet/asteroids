@@ -6,6 +6,6 @@ NaturalMovePC::NaturalMovePC() {}
 
 NaturalMovePC::~NaturalMovePC() {}
 
-void NaturalMovePC::update(Container* c, Uint32 time) {
+void NaturalMovePC::update(Container* c, Uint32) {
   c->setPosition(c->getPosition() + c->getVelocity());
 }

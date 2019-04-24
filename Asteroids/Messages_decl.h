@@ -29,4 +29,4 @@ enum MessageType {
 
 struct Message;
 
-};  // namespace msg
+}  // namespace msg

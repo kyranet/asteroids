@@ -3,7 +3,7 @@
 ShowUpAtOppositeSidePC::ShowUpAtOppositeSidePC() = default;
 ShowUpAtOppositeSidePC::~ShowUpAtOppositeSidePC() = default;
 
-void ShowUpAtOppositeSidePC::update(Container* c, Uint32 time) {
+void ShowUpAtOppositeSidePC::update(Container* c, Uint32) {
   const auto game = c->getGame();
   const auto width = c->getWidth();
   const auto height = c->getHeight();

@@ -3,7 +3,7 @@
 #include "InputHandler.h"
 #include "Messages_defs.h"
 
-void GameCtrlIC::handleInput(Container* c, Uint32 time) {
+void GameCtrlIC::handleInput(Container* c, Uint32) {
   // It's only the GameManager what sends messages to this controller
   const auto gameManager = reinterpret_cast<GameManager*>(c);
   if (!gameManager->isRunning() &&

@@ -7,7 +7,7 @@
 GunIC::GunIC(const SDL_Keycode key) : key_(key) {}
 GunIC::~GunIC() = default;
 
-void GunIC::handleInput(Container* c, Uint32 time) {
+void GunIC::handleInput(Container* c, Uint32) {
   if (!InputHandler::getInstance()->isKeyDown(key_)) return;
 
   const auto p =

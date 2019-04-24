@@ -2,7 +2,9 @@
 
 using namespace std;
 
-int main(int ac, char** av) {
+#undef main
+
+int main(int, char**) {
   AsteroidsGame g;
   g.start();
   return 0;

@@ -36,11 +36,11 @@ inline GameObjectPool<T, SIZE>::GameObjectPool(SDLGame* game)
 }
 
 template <typename T, int SIZE>
-inline GameObjectPool<T, SIZE>::~GameObjectPool() {}
+inline GameObjectPool<T, SIZE>::~GameObjectPool() = default;
 
 template <typename T, int SIZE>
 inline void GameObjectPool<T, SIZE>::handleInput(Uint32 time,
-                                                 const SDL_Event& event) {
+                                                 const SDL_Event&) {
   Container::handleInput(time);
   if (!isActive()) return;
   for (auto& o : objs_) {
