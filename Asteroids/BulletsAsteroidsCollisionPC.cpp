@@ -1,6 +1,8 @@
 #include "BulletsAsteroidsCollisionPC.h"
+#include "Asteroid.h"
 #include "Asteroids.h"
 #include "AsteroidsGame.h"
+#include "Bullet.h"
 #include "Collisions.h"
 #include "GameManager.h"
 #include "Messages_defs.h"
@@ -26,16 +28,15 @@ void BulletsAsteroidsCollisionPC::update(Container* c, Uint32) {
   }
 }
 
-void BulletsAsteroidsCollisionPC::receive(Container*,
-                                          const msg::Message& msg) {
+void BulletsAsteroidsCollisionPC::receive(Container*, const msg::Message& msg) {
   switch (msg.type_) {
     case msg::ASTEROIDS_INFO: {
-      const auto info = static_cast<const msg::AsteroidsInfo&>(msg);  // NOLINT
+      const auto info = reinterpret_cast<const msg::AsteroidsInfo&>(msg);
       asteroids_ = info.asteroids_;
       break;
     }
     case msg::BULLETS_INFO: {
-      const auto info = static_cast<const msg::BulletsInfo&>(msg);  // NOLINT
+      const auto info = reinterpret_cast<const msg::BulletsInfo&>(msg);
       bullets_ = info.bullets_;
       break;
     }

@@ -3,6 +3,7 @@
 #include "AsteroidsGame.h"
 #include "Collisions.h"
 #include "GameManager.h"
+#include "Messages_defs.h"
 
 FighterAsteroidCollisionPC::FighterAsteroidCollisionPC()
     : fighter_(nullptr), asteroids_(nullptr) {}
@@ -30,8 +31,7 @@ void FighterAsteroidCollisionPC::update(Container* c, Uint32) {
   }
 }
 
-void FighterAsteroidCollisionPC::receive(Container*,
-                                         const msg::Message& msg) {
+void FighterAsteroidCollisionPC::receive(Container*, const msg::Message& msg) {
   switch (msg.type_) {
     case msg::ASTEROIDS_INFO: {
       asteroids_ = reinterpret_cast<const msg::AsteroidsInfo&>(msg).asteroids_;

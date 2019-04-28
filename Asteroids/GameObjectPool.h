@@ -26,7 +26,7 @@ class GameObjectPool : public Container {
 
 template <typename T, int SIZE>
 inline GameObjectPool<T, SIZE>::GameObjectPool(SDLGame* game)
-    : Container(game), objs_() {
+    : Container(game) {
   for (auto& o : objs_) {
     o.setActive(false);
     o.setGame(game);

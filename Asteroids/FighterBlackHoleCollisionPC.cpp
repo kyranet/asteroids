@@ -23,7 +23,7 @@ void FighterBlackHoleCollisionPC::update(Container* c, Uint32) {
   }
 }
 
-void FighterBlackHoleCollisionPC::receive(Container* c,
+void FighterBlackHoleCollisionPC::receive(Container*,
                                           const msg::Message& msg) {
   switch (msg.type_) {
     case msg::BLACKHOLES_INFO: {

@@ -2,7 +2,8 @@
 #include "Container.h"
 
 class BlackHole final : public Container {
+ public:
   BlackHole();
-  BlackHole(SDLGame* game);
+  explicit BlackHole(SDLGame* game);
   ~BlackHole();
 };

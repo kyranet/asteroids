@@ -1,11 +1,13 @@
 ﻿#pragma once
+#include "BlackHoleAsteroidCollisionPC.h"
 #include "BulletsAsteroidsCollisionPC.h"
+#include "BulletsBlackHolesCollisionPC.h"
 #include "Container.h"
 #include "FighterAsteroidCollisionPC.h"
+#include "FighterBlackHoleCollisionPC.h"
 #include "GameCtrlIC.h"
 #include "GameStatusViewGC.h"
 #include "LivesViewerGC.h"
-#include "FighterBlackHoleCollisionPC.h"
 #include "ScoreViewerGC.h"
 
 class GameManager final : public Container {
@@ -35,5 +37,7 @@ class GameManager final : public Container {
   LivesViewerGC livesViewer_;
   FighterAsteroidCollisionPC fighterAsteroidCollision_;
   BulletsAsteroidsCollisionPC bulletsAsteroidsCollision_;
+  BulletsBlackHolesCollisionPC bulletsBlackHolesCollision_;
   FighterBlackHoleCollisionPC fighterBlackHoleCollision_;
+  BlackHoleAsteroidCollisionPC blackHoleAsteroidCollision_;
 };

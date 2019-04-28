@@ -17,6 +17,8 @@ GameManager::GameManager(SDLGame* game)
   addC(&fighterAsteroidCollision_);
   addC(&bulletsAsteroidsCollision_);
   addC(&fighterBlackHoleCollision_);
+  addC(&blackHoleAsteroidCollision_);
+  addC(&bulletsBlackHolesCollision_);
 }
 
 GameManager::~GameManager() = default;
@@ -45,7 +47,7 @@ void GameManager::receive(const void* senderObj, const msg::Message& msg) {
     }
     case msg::ASTEROID_DESTROYED: {
       const auto asteroidDestroyed =
-          static_cast<const msg::AsteroidDestroyed&>(msg);  // NOLINT
+          reinterpret_cast<const msg::AsteroidDestroyed&>(msg);
       score_ += asteroidDestroyed.points_;
       break;
     }

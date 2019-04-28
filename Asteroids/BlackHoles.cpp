@@ -1,12 +1,11 @@
 #include "BlackHoles.h"
 #include <cmath>
-#include "BlackHole.h"
 #include "Messages_defs.h"
 
 BlackHoles::BlackHoles(SDLGame* game)
-    : GameObjectPool<BlackHole, 8>(game),
+    : GameObjectPool(game),
       blackHoleImage_(getGame()->getServiceLocator()->getTextures()->getTexture(
-          Resources::Asteroid)),
+          Resources::BlackHole)),
       rotating_(5) {
   setId(msg::BlackHoles);
   setActive(false);
@@ -38,10 +37,6 @@ void BlackHoles::receive(const void*, const msg::Message& msg) {
     case msg::ROUND_OVER: {
       deactiveAllObjects();
       setActive(false);
-      break;
-    }
-    case msg::BULLET_ASTEROID_COLLISION: {
-      bulletAsteroidCollision(msg);
       break;
     }
     default:
@@ -85,5 +80,3 @@ void BlackHoles::roundStart() {
     blackHole->setActive(true);
   }
 }
-
-void BlackHoles::bulletAsteroidCollision(const msg::Message&) {}

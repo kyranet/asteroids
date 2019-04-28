@@ -11,8 +11,7 @@ class BlackHoles final : public GameObjectPool<BlackHole, 8> {
 
  public:
   explicit BlackHoles(SDLGame* game);
-  virtual ~BlackHoles();
+  ~BlackHoles();
   void receive(const void* senderObj, const msg::Message& msg) override;
   void roundStart();
-  void bulletAsteroidCollision(const msg::Message& msg);
 };

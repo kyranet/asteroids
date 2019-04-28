@@ -6,7 +6,7 @@ class Asteroid final : public Container {
 
  public:
   Asteroid();
-  Asteroid(SDLGame* game);
+  explicit Asteroid(SDLGame* game);
   ~Asteroid();
   int getGenerations() const;
   void setGenerations(int generations);

@@ -12,8 +12,12 @@ class Asteroids final : public GameObjectPool<Asteroid, 50> {
   RotatingPC rotating_;
   ShowUpAtOppositeSidePC showUpAtOppositeSide_;
 
+  void roundStart(const msg::Message& msg);
+  void bulletAsteroidCollision(const msg::Message& msg);
+  void blackHoleAsteroidCollision(const msg::Message& msg);
+
  public:
   explicit Asteroids(SDLGame* game);
-  virtual ~Asteroids();
+  ~Asteroids();
   void receive(const void* senderObj, const msg::Message& msg) override;
 };

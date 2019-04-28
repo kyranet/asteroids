@@ -32,7 +32,7 @@ void Bullets::receive(const void*, const msg::Message& msg) {
       break;
     case msg::BULLET_ASTEROID_COLLISION: {
       const auto collision =
-          static_cast<const msg::BulletAsteroidCollision&>(msg);  // NOLINT
+          reinterpret_cast<const msg::BulletAsteroidCollision&>(msg);
       auto bullet = collision.bullet_;
       bullet->setActive(false);
       getGame()->getServiceLocator()->getAudios()->playChannel(
@@ -56,6 +56,12 @@ void Bullets::receive(const void*, const msg::Message& msg) {
 
       getGame()->getServiceLocator()->getAudios()->playChannel(
           Resources::GunShot, 0);
+      break;
+    }
+    case msg::BULLET_BLACKHOLE_COLLISION: {
+      const auto collision =
+          reinterpret_cast<const msg::BulletBlackHoleCollision&>(msg);
+      collision.bullet_->setActive(false);
       break;
     }
     default:
