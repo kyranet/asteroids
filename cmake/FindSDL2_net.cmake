@@ -15,9 +15,9 @@
 #
 # ::
 #
-#   SDLMIXER_LIBRARY (same value as SDL_NET_LIBRARIES)
-#   SDLMIXER_INCLUDE_DIR (same value as SDL_NET_INCLUDE_DIRS)
-#   SDLMIXER_FOUND (same value as SDL_NET_FOUND)
+#   SDLNET_LIBRARY (same value as SDL_NET_LIBRARIES)
+#   SDLNET_INCLUDE_DIR (same value as SDL_NET_INCLUDE_DIRS)
+#   SDLNET_FOUND (same value as SDL_NET_FOUND)
 #
 #
 #
@@ -43,12 +43,12 @@
 #  License text for the above reference.)
 
 if(NOT SDL2_NET_DIR)
-  set(SDL2_NET_DIR "" CACHE PATH "SDL2 Mixer directory")
+  set(SDL2_NET_DIR "" CACHE PATH "SDL2 Net directory")
 endif()
 
 find_path(SDL2_NET_INCLUDE_DIR SDL_net.h
   HINTS
-    ENV SDL2MIXERDIR
+    ENV SDL2NETDIR
     ENV SDL2DIR
     ${SDL2_NET_DIR}
   PATH_SUFFIXES SDL2
@@ -63,9 +63,9 @@ else()
 endif()
 
 find_library(SDL2_NET_LIBRARY
-  NAMES SDL2_mixer
+  NAMES SDL2_net
   HINTS
-    ENV SDL2MIXERDIR
+    ENV SDL2NETDIR
     ENV SDL2DIR
     ${SDL2_NET_DIR}
   PATH_SUFFIXES lib ${VC_LIB_PATH_SUFFIX}
