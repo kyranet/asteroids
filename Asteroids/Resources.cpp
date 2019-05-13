@@ -18,7 +18,7 @@ vector<Resources::ImageInfo> Resources::images_{
     {Asteroid, "../resources/images/asteroid.png"},
     {Badges, "../resources/images/badges.png"},
     {WhiteRect, "../resources/images/whiterect.png"},
-    {BlackHole,"resources/images/black-hole.png" }};
+    {BlackHole,"../resources/images/black-hole.png" }};
 
 vector<Resources::TextMsgInfo> Resources::messages_{
     {HelloWorld, "Hello World", {COLOR(0xaaffffff)}, ARIAL16},
